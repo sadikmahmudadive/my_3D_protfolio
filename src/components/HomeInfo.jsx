@@ -27,10 +27,18 @@ const renderContent = {
         />
     ),
     3: (
-        <h1>Stage 3</h1>
+        <InfoBox 
+            text="Led multiple projects, from AI-driven solutions to full-stack applications. I thrive on transforming complex ideas into user-friendly products. Curious about my works?"
+            link="/projects"
+            btnText="Click to Explore"
+        />
     ),
     4: (
-        <h1>Stage 4</h1>
+        <InfoBox 
+            text="I am always open to new opportunities and collaborations. Whether you have a project in mind or just want to connect, feel free to reach out!"
+            link="/contact"
+            btnText="Let's Connect"
+        />
     )
 }
 
