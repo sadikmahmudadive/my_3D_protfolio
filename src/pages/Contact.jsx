@@ -11,19 +11,21 @@ export const Contact = () => {
     email: '',
     message: ''
   })
-
   const [IsLoading, setIsLoading] = useState(false)
+  const [currentAnimation, setCurrentAnimation] = useState('Idle')
 
   const fromRef = useRef(null);
 
   const handleChange = (e) => {
     setForm({...form, [e.target.name]: e.target.value})
   };
-  const handleFocus = () => {};
-  const handleBlur = () => {};
+  const handleFocus = () => setCurrentAnimation('Walk');
+  const handleBlur = () => setCurrentAnimation('Idle');
+
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsLoading(true);
+    setCurrentAnimation('hit');
 
     emailjs.send(
       import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
@@ -49,6 +51,7 @@ export const Contact = () => {
       });
     }).catch((error) => {
       setIsLoading(false);
+      setCurrentAnimation('Idle');
       console.log(error);
       //TODO: add an error message or notification here
     })
@@ -131,6 +134,7 @@ export const Contact = () => {
             position={[0.5, -1, 0]}
             rotation={[12.6, -0.6, 0]}
             scale={[8, 8, 8]}
+            currentAnimation={currentAnimation}
             />
           </Suspense>
         </Canvas>
