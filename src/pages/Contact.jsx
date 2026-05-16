@@ -12,15 +12,15 @@ export const Contact = () => {
     message: ''
   })
   const [IsLoading, setIsLoading] = useState(false)
-  const [currentAnimation, setCurrentAnimation] = useState('Idle')
+  const [currentAnimation, setCurrentAnimation] = useState('idle')
 
   const fromRef = useRef(null);
 
   const handleChange = (e) => {
     setForm({...form, [e.target.name]: e.target.value})
   };
-  const handleFocus = () => setCurrentAnimation('Walk');
-  const handleBlur = () => setCurrentAnimation('Idle');
+  const handleFocus = () => setCurrentAnimation('walk');
+  const handleBlur = () => setCurrentAnimation('idle');
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -51,7 +51,7 @@ export const Contact = () => {
       });
     }).catch((error) => {
       setIsLoading(false);
-      setCurrentAnimation('Idle');
+      setCurrentAnimation('idle');
       console.log(error);
       //TODO: add an error message or notification here
     })
@@ -131,10 +131,10 @@ export const Contact = () => {
           <ambientLight intensity={0.5} />
           <Suspense fallback = {<Loader />}>
             <Fox
-            position={[0.5, -1, 0]}
-            rotation={[12.6, -0.6, 0]}
-            scale={[8, 8, 8]}
-            currentAnimation={currentAnimation}
+              currentAnimation={currentAnimation}
+              position={[0.5, 0.35, 0]}
+              rotation={[12.629, -0.6, 0]}
+              scale={[0.5, 0.5, 0.5]}
             />
           </Suspense>
         </Canvas>
