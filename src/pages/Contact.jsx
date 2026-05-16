@@ -2,7 +2,7 @@ import { useRef, useState, Suspense } from "react";
 import emailjs from '@emailjs/browser';
 import { Canvas } from "@react-three/fiber";
 
-import Fox from "../models/Fox";
+import { Fox } from "../models/Fox";
 import Loader from "../components/Loader";
 
 export const Contact = () => {
