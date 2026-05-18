@@ -2,6 +2,7 @@ import { VerticalTimeline, VerticalTimelineElement }  from 'react-vertical-timel
 import 'react-vertical-timeline-component/style.min.css';
 
 import { skills, experiences } from "../constants"
+import CTA from '../components/CTA';
 
 export const About = () => {
   return (
@@ -49,6 +50,7 @@ export const About = () => {
                 <img src={experience.icon} alt={experience.company_name}
                 className='w-[60%] h-[6-%] object-contain' />
               </div>}
+              iconStyle={{ background: experience.iconBg }}
               contentStyle={{ 
                 borderBottom: '8px',
                 borderStyle: 'solid',
@@ -72,6 +74,10 @@ export const About = () => {
           </VerticalTimeline>
         </div>
       </div>
+
+      <hr className='border-slate-200' />
+
+      <CTA />
     </section>
   )
 }
