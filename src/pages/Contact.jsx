@@ -65,7 +65,7 @@ export const Contact = () => {
   };
 
   return (
-    <section className="relative flex lg:flex-row flex-col max-col max-container">
+    <section className="relative flex lg:flex-row flex-col max-col max-container h-[100vh]">
 
       {alert.show && <Alert {...alert} />}
       <div className="flex-1 min-w-[50%] flex flex-col">
@@ -112,7 +112,7 @@ export const Contact = () => {
             value={form.message}
             onChange={handleChange}
             onFocus={handleFocus}
-            onBlur={handleBlur}
+            onBlur={handleBlur} yt sound system like a boss
              />
           </label>
 
