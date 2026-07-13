@@ -1,14 +1,11 @@
-import React from 'react'
 import { Link } from 'react-router-dom'
 
 const CTA = () => {
   return (
     <section className='cta'>
-        <p className='cta-text'>Ready to take your project to the next level? <br className='sm:block hidden' /> 
-            Let's collaborate!
-        </p>
+        <p className='cta-text'>Need someone who can connect AI, software, and hardware into one clear product?</p>
         <Link to="/contact" className='btn'>
-            Get in Touch
+            Start a conversation
         </Link>
     </section>
   )

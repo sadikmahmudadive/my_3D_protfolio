@@ -1,6 +1,6 @@
 import { useAnimations, useGLTF } from '@react-three/drei';
 import { useFrame } from '@react-three/fiber';
-import { useRef, useEffect, use } from 'react'
+import { useRef, useEffect } from 'react'
 
 const Bird = () => {
     const { scene, animations } = useGLTF('/bird.glb');
@@ -8,8 +8,8 @@ const Bird = () => {
     const { actions } = useAnimations(animations, birdRef);
 
     useEffect(() => {
-      actions['Take 001'].play();
-    }, []);
+      actions?.['Take 001']?.play();
+    }, [actions]);
 
     useFrame(({ clock, camera }) => {
         // Update the Y position to simulate bird-like motion using a sine wave

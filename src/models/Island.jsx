@@ -6,13 +6,14 @@ Source: https://sketchfab.com/3d-models/foxs-islands-163b68e09fcc47618450150be77
 Title: Fox's islands
 */
 
-import React, { useRef, useEffect, use } from 'react'
+/* eslint-disable react-hooks/exhaustive-deps */
+import { useRef, useEffect } from 'react'
 import { useGLTF } from '@react-three/drei'
 import { useFrame, useThree } from '@react-three/fiber'
 import { a } from '@react-spring/three'
 
 
-const Island = ({isRotating, setIsRotating, setCurrentStage, currentFocusPoint,...props}) => {
+const Island = ({isRotating, setIsRotating, setCurrentStage,...props}) => {
   const islandRef = useRef();
   // Get access to the Three.js renderer and viewport
   const { gl, viewport } = useThree();
@@ -144,7 +145,7 @@ const Island = ({isRotating, setIsRotating, setCurrentStage, currentFocusPoint,.
       canvas.removeEventListener("touchend", handleTouchEnd);
       canvas.removeEventListener("touchmove", handleTouchMove);
     };
-  }, [gl, handlePointerDown, handlePointerUp, handlePointerMove]);
+  }, [gl, handlePointerDown, handlePointerUp, handlePointerMove, handleKeyDown, handleKeyUp, handleTouchStart, handleTouchEnd, handleTouchMove]);
 
   // This function is called on each frame update
   useFrame(() => {

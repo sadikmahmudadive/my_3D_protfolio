@@ -1,50 +1,62 @@
-import { Link } from "react-router-dom";
-import { projects } from "../constants"
-import { arrow } from "../assets/icons";
-import CTA from "../components/CTA";
+import { Link } from 'react-router-dom'
+import { arrow } from '../assets/icons'
+import CTA from '../components/CTA'
+import { projects } from '../constants'
 
 export const Projects = () => {
   return (
     <section className="max-container">
-      <h1 className="head-text">
-        My <span className="blue-gradient_text font-semibold drop-shadow">Projects</span>
-      </h1>
-
-      <div className="mt-5 flex flex-col gap-3  text-slate-500">
-        <p className="description">
-          My projects reflect a builder mindset across AI, software, and hardware. I have worked on research-driven AI systems such as temporal explainable GNN models for real-time intrusion detection and smart-grid fault localization, while also building practical full-stack products with Next.js, Firebase, and Cloudinary. In mobile development, I created Android applications focused on real user needs, and in IoT I developed ESP32-based prototypes that connect embedded systems with interactive software. Overall, my work combines experimentation, product thinking, and execution, with the goal of turning technical ideas into useful and impactful solutions.
+      <div className="space-y-6">
+        <span className="section-kicker">Selected work</span>
+        <h1 className="head-text">
+          Projects that combine research, software, and practical implementation.
+        </h1>
+        <p className="section-copy">
+          These are the kinds of projects I like building: technically grounded, visually clean, and useful in the real world.
+          Some are research-heavy, others are product-focused, and a few connect hardware to software through IoT.
         </p>
       </div>
 
-      <div className="flex flex-wrap my-30 gap-16">
-        {projects.map((project, idx) => (
-          <div className="w-full" style={{ width: 400 }} key={project.name}>
-            <div className="block-container relative w-20 h-20">
-              <div className={`btn-back rounded-xl ${project.theme}`} />
-              <div className="btn-front flex items-center justify-center rounded-xl">
-                <img src={project.iconUrl} alt={project.name} className="w-10 h-10 object-contain" />
+      <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+        {projects.map((project) => (
+          <article key={project.name} className="project-card">
+            <div className="flex items-start justify-between gap-4">
+              <div className="block-container h-16 w-16 shrink-0">
+                <div className={`btn-back rounded-2xl ${project.theme}`} />
+                <div className="btn-front flex items-center justify-center rounded-2xl">
+                  <img src={project.iconUrl} alt={project.name} className="h-9 w-9 object-contain" />
+                </div>
+              </div>
+              <div className="text-right">
+                <p className="text-xs uppercase tracking-[0.25em] text-slate-500">Project</p>
+                <p className="mt-1 text-sm font-medium text-white/80">Featured build</p>
               </div>
             </div>
-            <div className="mt--5 flex flex-col">
-              <h4 className="text-2xl font-poppins text-semibold">
-                {project.name}
-              </h4>
-              <p className="mt-2 text-slate-500">{project.description}</p>
-              <div className="mt-5 flex items-center gap-2 font-poppins">
-                <Link to={project.link} target="_blank" rel="noopener noreferrer" className="font-semibold  text-blue-600 ">
-                  View Project
-                </Link>
-                <img src={arrow} alt="arrow" className="w-4 h-4 object-contain"/>
-              </div>
+
+            <h2 className="mt-6 text-2xl font-semibold text-white">{project.name}</h2>
+            <p className="mt-3 text-sm leading-7 text-slate-300">{project.description}</p>
+
+            <div className="project-tags">
+              {project.tags?.map((tag) => (
+                <span key={tag} className="project-tag">
+                  {tag}
+                </span>
+              ))}
             </div>
-          </div>
+
+            <div className="mt-6 flex items-center gap-2">
+              <Link to={project.link} target="_blank" rel="noopener noreferrer" className="btn-secondary">
+                View project
+                <img src={arrow} alt="arrow" className="h-4 w-4 object-contain" />
+              </Link>
+            </div>
+          </article>
         ))}
       </div>
-
-      <hr className="border-slate-200"/>
 
       <CTA />
     </section>
   )
 }
-export default Projects;
+
+export default Projects

@@ -5,8 +5,9 @@ import { Home, About, Projects, Contact } from "./pages"
 
 const App = () => {
   return (
-    <main className="bg-slate-300/20 h-full">
+    <main className="page-shell min-h-screen text-slate-100">
       <Router>
+        <div className="page-layer">
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
@@ -15,6 +16,7 @@ const App = () => {
           <Route path="/contact" element={<Contact />} />
         </Routes>
         <Footer />
+        </div>
       </Router>
     </main>
   )

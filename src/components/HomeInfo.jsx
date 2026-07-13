@@ -1,49 +1,48 @@
-import React from 'react'
-import { Link } from 'react-router-dom';
-import { arrow } from '../assets/icons';
+import { Link } from 'react-router-dom'
+import { arrow } from '../assets/icons'
 
 const InfoBox = ({ text, link, btnText }) => (
-    <div className='info-box'>
-        <p className='font-medium sm:text-xl text-center'>{text}</p>
-        <Link to={link} className='neo-brutalism-white neo-btn'>
-            {btnText}
-            <img src={arrow} alt="arrow" className='w-4 h-4 object-contain' />
-        </Link>
-    </div>
+  <div className="panel-soft mx-4 max-w-xl px-5 py-5 text-center shadow-xl">
+    <p className="text-base font-medium leading-7 text-slate-100 sm:text-lg">{text}</p>
+    <Link to={link} className="btn-secondary mx-auto mt-5 w-fit">
+      {btnText}
+      <img src={arrow} alt="arrow" className="h-4 w-4 object-contain" />
+    </Link>
+  </div>
 )
 
 const renderContent = {
-    1: (
-        <h1 className='sm:text-xl sm:leading-snug text-center neo-brutalism-blue py-4 px-8 text-white mx-5'>
-            Hi I am <span className='font-semibold'>Md. Sadik Mahmud Adive</span>👋 <br />
-            A software engineer and a AI enthusiast from Bangladesh. <br />
-        </h1>
-    ),
-    2: (
-        <InfoBox 
-            text="I bridge the gap between advanced AI research and high-performance product engineering. From GNN architectures to polished digital interfaces."
-            link="/about"
-            btnText="Learn More"
-        />
-    ),
-    3: (
-        <InfoBox 
-            text="Led multiple projects, from AI-driven solutions to full-stack applications. I thrive on transforming complex ideas into user-friendly products. Curious about my works?"
-            link="/projects"
-            btnText="Click to Explore"
-        />
-    ),
-    4: (
-        <InfoBox 
-            text="I am always open to new opportunities and collaborations. Whether you have a project in mind or just want to connect, feel free to reach out!"
-            link="/contact"
-            btnText="Let's Connect"
-        />
-    )
+  1: (
+    <h1 className="panel mx-4 max-w-2xl px-6 py-5 text-center text-base leading-7 text-slate-100 sm:text-lg">
+      Hi, I&apos;m <span className="font-semibold text-cyan-200">Md. Sadik Mahmud Adive</span>.
+      I build practical products across AI/ML, software engineering, and IoT.
+    </h1>
+  ),
+  2: (
+    <InfoBox
+      text="I bridge the gap between research and delivery, from graph learning and explainable AI to polished product interfaces."
+      link="/about"
+      btnText="Learn More"
+    />
+  ),
+  3: (
+    <InfoBox
+      text="My work spans full-stack applications, Android products, and embedded IoT prototypes built to solve real problems."
+      link="/projects"
+      btnText="View Projects"
+    />
+  ),
+  4: (
+    <InfoBox
+      text="I am open to internships, freelance work, and collaborations where engineering quality really matters."
+      link="/contact"
+      btnText="Get in Touch"
+    />
+  ),
 }
 
 const HomeInfo = ({ currentStage }) => {
-  return renderContent[currentStage] || null;
+  return renderContent[currentStage] || null
 }
 
 export default HomeInfo

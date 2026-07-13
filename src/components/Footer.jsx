@@ -1,73 +1,49 @@
 import linkedin from "../assets/icons/linkedin.svg"
+import { Link } from "react-router-dom"
 
 const SocialIcon = ({ children }) => (
-  <span className="flex aspect-square h-11 w-11 shrink-0 items-center justify-center overflow-hidden rounded-full bg-slate-900 text-white shadow-card transition-transform duration-300 group-hover:scale-110 group-hover:bg-blue-500">
+  <span className="flex aspect-square h-11 w-11 shrink-0 items-center justify-center overflow-hidden rounded-full bg-white/10 text-white transition-transform duration-300 group-hover:scale-110 group-hover:bg-cyan-400/20">
     {children}
   </span>
 )
 
-const FooterLink = ({ href, label, detail, icon, external = false }) => (
-  <a
-    href={href}
+const FooterLink = ({ href, label, detail, icon, external = false }) => {
+  const Wrapper = external ? 'a' : Link
+
+  return (
+  <Wrapper
+    href={external ? href : undefined}
+    to={external ? undefined : href}
     target={external ? "_blank" : undefined}
     rel={external ? "noreferrer" : undefined}
-    className="group flex items-center gap-4 rounded-2xl border border-slate-200 bg-white/90 px-4 py-4 shadow-card transition-all hover:-translate-y-1 hover:border-blue-500"
+    className="group flex items-center gap-4 rounded-2xl border border-white/10 bg-white/5 px-4 py-4 transition-all hover:-translate-y-1 hover:border-cyan-300/30 hover:bg-white/10"
   >
     <SocialIcon>{icon}</SocialIcon>
     <div className="min-w-0">
       <span className="block text-xs uppercase tracking-[0.2em] text-slate-400">{label}</span>
-      <span className="block truncate font-medium text-slate-700 group-hover:text-blue-500">{detail}</span>
+      <span className="block truncate font-medium text-white/90 group-hover:text-cyan-200">{detail}</span>
     </div>
-  </a>
-)
+  </Wrapper>
+  )
+}
 
 const Footer = () => {
   return (
-    <footer className="footer mt-16 border-t border-slate-200/80 bg-white/70 backdrop-blur-sm">
-      <div className="footer-container py-6">
-        <div>
-          <h3 className="subhead-text">Let&apos;s connect</h3>
-          <p className="mt-2 max-w-xl text-sm text-slate-500">
-            Find me on social media or send a mail directly. Replace the placeholder links with your real Facebook and Instagram profiles when ready.
+    <footer className="footer">
+      <div className="footer-shell">
+        <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
+          <div className="max-w-2xl">
+          <span className="section-kicker">Open to opportunities</span>
+          <h3 className="mt-4 subhead-text">Let&apos;s build something useful together.</h3>
+          <p className="mt-3 max-w-xl text-sm leading-7 text-slate-300">
+            I am open to roles and collaborations across AI/ML, software engineering, and IoT. If you need a builder who can move from idea to delivery, let&apos;s talk.
           </p>
         </div>
 
-        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-          <FooterLink
-            href="https://www.facebook.com/sadik.sadikmahmud/"
-            label="Facebook"
-            detail="Md. Sadik Mahmud Adive"
-            external
-            icon={(
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className="h-5 w-5">
-                <path d="M13.5 22v-8h2.7l.4-3.1h-3.1V9c0-.9.2-1.5 1.6-1.5H17V4.7c-.4 0-1.5-.1-2.8-.1-2.7 0-4.6 1.7-4.6 4.8v1.5H6.8V14h2.9v8h3.8z" />
-              </svg>
-            )}
-          />
-
-          <FooterLink
-            href="https://www.linkedin.com/in/sadik-mahmud-8340a9408/"
-            label="LinkedIn"
-            detail="Md. Sadik Mahmud Adive"
-            external
-            icon={<img src={linkedin} alt="LinkedIn" className="h-full w-full p-2 object-contain brightness-0 invert" />}
-          />
-
-          <FooterLink
-            href="https://www.instagram.com/_lifewithmockingbird_/"
-            label="Instagram"
-            detail="Md. Sadik Mahmud Adive"
-            external
-            icon={(
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className="h-5 w-5">
-                <path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9A5.5 5.5 0 0 1 16.5 22h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2Zm0 1.8A3.7 3.7 0 0 0 3.8 7.5v9a3.7 3.7 0 0 0 3.7 3.7h9a3.7 3.7 0 0 0 3.7-3.7v-9a3.7 3.7 0 0 0-3.7-3.7h-9Zm4.5 3.1a4.6 4.6 0 1 1 0 9.2 4.6 4.6 0 0 1 0-9.2Zm0 1.8a2.8 2.8 0 1 0 0 5.6 2.8 2.8 0 0 0 0-5.6Zm5.1-.9a1 1 0 1 1 0 2 1 1 0 0 1 0-2Z" />
-              </svg>
-            )}
-          />
-
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
           <FooterLink
             href="mailto:siradive137@gmail.com"
-            label="Gmail"
+            label="Email"
             detail="siradive137@gmail.com"
             icon={(
               <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className="h-5 w-5">
@@ -75,6 +51,38 @@ const Footer = () => {
               </svg>
             )}
           />
+
+          <FooterLink
+            href="https://github.com/sadikmahmudadive"
+            label="GitHub"
+            detail="sadikmahmudadive"
+            external
+            icon={(
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className="h-5 w-5">
+                <path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.67c-2.77.6-3.36-1.16-3.36-1.16-.46-1.16-1.12-1.47-1.12-1.47-.91-.62.07-.61.07-.61 1.01.07 1.54 1.04 1.54 1.04.9 1.54 2.36 1.1 2.94.84.09-.65.35-1.1.64-1.35-2.22-.25-4.56-1.11-4.56-4.95 0-1.09.39-1.98 1.04-2.68-.1-.26-.45-1.28.1-2.66 0 0 .85-.27 2.77 1.03a9.64 9.64 0 0 1 5.04 0c1.92-1.3 2.77-1.03 2.77-1.03.55 1.38.2 2.4.1 2.66.65.7 1.04 1.59 1.04 2.68 0 3.85-2.35 4.69-4.58 4.94.36.31.69.92.69 1.86v2.76c0 .26.18.57.69.48A10 10 0 0 0 12 2Z" />
+              </svg>
+            )}
+          />
+
+          <FooterLink
+            href="https://www.linkedin.com/in/sadikmahmudadive"
+            label="LinkedIn"
+            detail="sadikmahmudadive"
+            external
+            icon={<img src={linkedin} alt="LinkedIn" className="h-full w-full p-2 object-contain brightness-0 invert" />}
+          />
+
+          <FooterLink
+            href="/contact"
+            label="Contact"
+            detail="Get in touch"
+            icon={(
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className="h-5 w-5">
+                <path d="M4 6.75A2.75 2.75 0 0 1 6.75 4h10.5A2.75 2.75 0 0 1 20 6.75v10.5A2.75 2.75 0 0 1 17.25 20H6.75A2.75 2.75 0 0 1 4 17.25V6.75Zm2.9-.95 5.1 4 5.1-4H6.9Zm11.35 2.24-5.62 4.41a1 1 0 0 1-1.24 0L6.75 8.04v9.21c0 .41.34.75.75.75h9c.41 0 .75-.34.75-.75V8.04Z" />
+              </svg>
+            )}
+          />
+          </div>
         </div>
       </div>
     </footer>

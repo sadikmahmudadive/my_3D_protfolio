@@ -1,70 +1,88 @@
-import { VerticalTimeline, VerticalTimelineElement }  from 'react-vertical-timeline-component';
-import 'react-vertical-timeline-component/style.min.css';
-
-import { skills, experiences } from "../constants"
-import CTA from '../components/CTA';
+import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component'
+import 'react-vertical-timeline-component/style.min.css'
+import CTA from '../components/CTA'
+import { experiences, skills, specialties } from '../constants'
 
 export const About = () => {
   return (
     <section className="max-container">
-      <h1 className="head-text">
-        Hello, I'm <span className="blue-gradient_text font-semibold drop-shadow">Md. Sadik Mahmud Adive</span>
-      </h1>
-
-      <div className="mt-5 flex flex-col gap-3  text-slate-500">
-        <p className="description">
-          I am a multidisciplinary AI researcher and full-stack builder crafting impactful web, mobile, and IoT products from idea to reality.
+      <div className="space-y-6">
+        <span className="section-kicker">About me</span>
+        <h1 className="head-text">
+          I build systems that are useful, understandable, and ready for real use.
+        </h1>
+        <p className="section-copy">
+          I work across AI/ML, software engineering, and IoT with a practical mindset. My background combines
+          research, full-stack development, embedded experimentation, teaching, and student leadership, which helps me
+          move from concept to delivery without losing sight of the user.
         </p>
       </div>
 
-      <div className="py-10 flex flex-col">
-        <h2 className="subhead-text">My Skills</h2>
-      </div>
-
-      <div className="mt-8 flex flex-wrap gap-12">
-        {skills.map((skill, idx) => (
-          <div className="block-container w-20 h-20" key={skill.name + idx}>
-            <div className="btn-back rounded-xl" />
-            <div className="btn-front rounded-xl flex justify-center items-center">
-              <img src={skill.imageUrl} alt={skill.name} className="w-12 h-12 object-contain" />
-            </div>
+      <div className="mt-10 grid gap-4 md:grid-cols-3">
+        {specialties.map((item) => (
+          <div key={item.title} className="panel-soft p-5">
+            <h2 className="text-xl font-semibold text-white">{item.title}</h2>
+            <p className="mt-2 text-sm leading-6 text-slate-300">{item.description}</p>
           </div>
         ))}
       </div>
 
-      <div className="py-16">
-        <h3 className="subhead-text">My Experience</h3>
-          <div className="mt-5 flex flex-col gap-3  text-slate-500">
-          <p className="description">
-            As a fresher, my experience is built through real projects, technical leadership, and long-term teaching impact. I have led IEEE BUBT Student Branch initiatives as Chairperson of IEEE RAS BUBT SB and General Secretary in 2025, after serving as Graphics Designer (In-charge) in 2024, where I managed teams, events, communication, and execution. Alongside leadership, I have developed practical work across AI research, full-stack web, Android, and IoT projects, turning ideas into deployable systems. I also bring 6 years of teaching experience as an ICT and Biology instructor at SM Science Academy, Mirpur-1, Dhaka, which strengthened my communication, mentoring, and problem-solving skills..
-          </p>
+      <div className="py-14">
+        <h2 className="subhead-text">Core skills</h2>
+        <div className="mt-8 flex flex-wrap gap-4">
+          {skills.map((skill, idx) => (
+            <div className="skill-card w-28" key={skill.name + idx}>
+              <div className="skill-icon">
+                <img src={skill.imageUrl} alt={skill.name} className="h-8 w-8 object-contain" />
+              </div>
+              <div>
+                <p className="text-sm font-semibold text-white">{skill.name}</p>
+                <p className="text-xs text-slate-400">{skill.type}</p>
+              </div>
+            </div>
+          ))}
         </div>
+      </div>
 
-        <div className="mt-12 flex">
-          <VerticalTimeline>
+      <div className="space-y-4">
+        <h2 className="subhead-text">Experience</h2>
+        <p className="section-copy">
+          My experience is rooted in real responsibilities: student leadership, long-term teaching, and project
+          execution across different technical stacks.
+        </p>
+
+        <div className="mt-10">
+          <VerticalTimeline lineColor="rgba(148, 163, 184, 0.2)">
             {experiences.map((experience, idx) => (
-              <VerticalTimelineElement 
-              key={experience.company_name + idx}
-              date={experience.date}
-              icon={<div className='flex justify-center items-center w-full h-full rounded-full'>
-                <img src={experience.icon} alt={experience.company_name}
-                className='w-[60%] h-[6-%] object-contain' />
-              </div>}
-              iconStyle={{ background: experience.iconBg }}
-              contentStyle={{ 
-                borderBottom: '8px',
-                borderStyle: 'solid',
-                borderBottomColor: experience.iconBg,
-                boxShadow: 'none'
-               }}>
+              <VerticalTimelineElement
+                key={experience.company_name + idx}
+                date={experience.date}
+                icon={
+                  <div className="flex h-full w-full items-center justify-center rounded-full bg-white p-2">
+                    <img
+                      src={experience.icon}
+                      alt={experience.company_name}
+                      className="h-full w-full object-contain"
+                    />
+                  </div>
+                }
+                iconStyle={{ background: experience.iconBg, boxShadow: 'none' }}
+                contentStyle={{
+                  borderRadius: '1.25rem',
+                  background: 'rgba(15, 23, 42, 0.82)',
+                  border: '1px solid rgba(255, 255, 255, 0.08)',
+                  boxShadow: '0 20px 80px rgba(15, 23, 42, 0.28)',
+                }}
+                contentArrowStyle={{ borderRight: '7px solid rgba(15, 23, 42, 0.82)' }}
+              >
                 <div>
-                  <h3 className='text-black text-xl font-poppins font-semibold'>{experience.title}</h3>
-                  <p className='text-black-500 font-base font-medium'  style={{margin:0}}>{experience.company_name}</p>
+                  <h3 className="text-xl font-semibold text-white">{experience.title}</h3>
+                  <p className="mt-1 text-sm font-medium text-cyan-200">{experience.company_name}</p>
                 </div>
 
-                <ul className='my-5 list-disc ml-5 space-y-2'>
-                  {experience.points.map((point, idx) => (
-                    <li key={'experience-point-${index}'} className='text-black-500//50 font-normal pl-1 text-sm'>
+                <ul className="my-5 ml-5 list-disc space-y-2">
+                  {experience.points.map((point, pointIdx) => (
+                    <li key={`${experience.company_name}-${pointIdx}`} className="text-sm leading-6 text-slate-300">
                       {point}
                     </li>
                   ))}
@@ -74,8 +92,6 @@ export const About = () => {
           </VerticalTimeline>
         </div>
       </div>
-
-      <hr className='border-slate-200' />
 
       <CTA />
     </section>

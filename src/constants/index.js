@@ -37,6 +37,28 @@ export const skills = [
   { imageUrl: github, name: "GitHub", type: "Version Control" },
 ];
 
+export const specialties = [
+  {
+    title: "AI / ML",
+    description: "Research-minded systems, graph learning, explainability, and practical ML workflows.",
+  },
+  {
+    title: "Software",
+    description: "Modern web and mobile products with clean UI, scalable architecture, and strong DX.",
+  },
+  {
+    title: "IoT",
+    description: "Embedded prototypes that connect sensors, devices, and software into useful products.",
+  },
+];
+
+export const stats = [
+  { label: "Focus areas", value: "3" },
+  { label: "Teaching experience", value: "6+ yrs" },
+  { label: "Projects shipped", value: "10+" },
+  { label: "IEEE leadership", value: "2024-25" },
+];
+
 export const experiences = [
   {
     title: "Chairperson, IEEE RAS BUBT SB",
@@ -116,7 +138,8 @@ export const projects = [
     theme: "btn-back-yellow",
     name: "Temporal Explainable GNN for Intrusion Detection",
     description:
-      "Research + implementation project for real-time intrusion detection on dynamic network graphs using temporal GNN and explainability methods.",
+      "Research-driven intrusion detection on dynamic network graphs using temporal GNNs and explainability methods.",
+    tags: ["AI/ML", "Cybersecurity", "Graph Learning"],
     link: "https://github.com/sadikmahmudadive/Temporal-Explainable-GNN-for-Real-Time-Intrusion-Detection-on-Dynamic-Network-Graphs",
   },
   {
@@ -124,7 +147,8 @@ export const projects = [
     theme: "btn-back-green",
     name: "SM Science Group",
     description:
-      "Full-stack Next.js platform with Firebase integration, modern UI workflow, and scalable project structure.",
+      "A full-stack Next.js platform with Firebase integration, modern UI workflows, and a scalable structure.",
+    tags: ["Next.js", "Firebase", "UI Systems"],
     link: "https://github.com/sadikmahmudadive/SM-Science-Group",
   },
   {
@@ -132,7 +156,8 @@ export const projects = [
     theme: "btn-back-red",
     name: "Bismillah Accessories",
     description:
-      "Modern e-commerce-focused web application built with Next.js and TypeScript, designed for real product deployment and iteration.",
+      "A product-focused e-commerce web app built with Next.js and TypeScript for real-world deployment.",
+    tags: ["E-commerce", "TypeScript", "Product UI"],
     link: "https://github.com/sadikmahmudadive/Bismillah-Accessories",
   },
   {
@@ -140,7 +165,8 @@ export const projects = [
     theme: "btn-back-blue",
     name: "IEEE Connect Android",
     description:
-      "Android app focused on community and organization workflows, developed with Java and Material-based UI architecture.",
+      "Android app for community and organization workflows, built with Java and Material Design patterns.",
+    tags: ["Android", "Community", "Mobile"],
     link: "https://github.com/sadikmahmudadive/Ieee_Connect",
   },
   {
@@ -148,7 +174,8 @@ export const projects = [
     theme: "btn-back-black",
     name: "EnvoTracker",
     description:
-      "Python desktop app for environmental tracking with Firebase sync and analytics-oriented user insights.",
+      "Python desktop app for environmental tracking with Firebase sync and analytics-focused insights.",
+    tags: ["Python", "Analytics", "Firebase"],
     link: "https://github.com/sadikmahmudadive/EnvoTracker",
   },
   {
@@ -156,7 +183,8 @@ export const projects = [
     theme: "btn-back-pink",
     name: "ESP32 MPU6050 Air Mouse",
     description:
-      "IoT prototype combining ESP32 and MPU6050 for motion-based interaction, bridging embedded systems and software control.",
+      "An IoT prototype combining ESP32 and MPU6050 for motion-based interaction and control.",
+    tags: ["IoT", "ESP32", "Embedded"],
     link: "https://github.com/sadikmahmudadive/ESP32_MPU6050_Air_Mouse",
   },
 ];

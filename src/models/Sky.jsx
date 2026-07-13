@@ -1,5 +1,5 @@
 import { useGLTF } from '@react-three/drei';
-import { use, useRef } from 'react'
+import { useRef } from 'react'
 import { useFrame } from '@react-three/fiber';
 
 const Sky = ({ isRotating }) => {
